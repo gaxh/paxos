@@ -1,0 +1,36 @@
+set -x
+
+g++ --std=c++11 -I../v0 -c ../v0/utils.cpp
+retVal=$?
+if [ $retVal -ne 0 ]; then
+  echo "failed to compile utils.cpp"
+  exit 0
+fi
+
+g++ --std=c++11 -I../v0 -c ../v0/paxos.cpp
+retVal=$?
+if [ $retVal -ne 0 ]; then
+  echo "failed to compile paxos.cpp"
+  exit 0
+fi
+
+g++ --std=c++11 -I../v0 -c ../v0/env.cpp
+retVal=$?
+if [ $retVal -ne 0 ]; then
+  echo "failed to compile env.cpp"
+  exit 0
+fi
+
+g++ --std=c++11 -I../v0 -c ../v0/main.cpp
+retVal=$?
+if [ $retVal -ne 0 ]; then
+  echo "failed to compile main.cpp"
+  exit 0
+fi
+
+g++ --std=c++11 -o a.out main.o paxos.o utils.o env.o
+retVal=$?
+if [ $retVal -ne 0 ]; then
+  echo "failed to link"
+  exit 0
+fi
