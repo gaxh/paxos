@@ -1,7 +1,6 @@
 # paxos
 
-This program implements Paxos based on the Paxos made simple paper, and an
-environment which simulates an async network to test Paxos implementation.
+This program implements a leader selection library based on the Paxos made simple paper, and an environment which simulates an async network to test Paxos implementation.
 
 This implementation of Paxos made one design choice that is not explicitly stated
 in the Paxos made simple paper, each value accepted by acceptor has a proposal
